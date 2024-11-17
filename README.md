@@ -1,6 +1,6 @@
 # COTI Hardhat Template
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a Hardhat Ignition module that deploys that contract.
+A simple template to get started with smart contract development on COTI with [Hardhat](https://hardhat.org/) and TypeScript. The template demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a Hardhat Ignition module that deploys that contract.
 
 Try running some of the following tasks:
 
@@ -8,6 +8,5 @@ Try running some of the following tasks:
 npx hardhat help
 npx hardhat test
 REPORT_GAS=true npx hardhat test
-npx hardhat node
 npx hardhat ignition deploy ./ignition/modules/PrivateStorage.ts
 ```

@@ -1,19 +1,21 @@
-import hre from "hardhat";
-import { expect } from "chai";
-import { setupAccounts } from "./utils/accounts";
-import { itUint } from "@coti-io/coti-ethers";
+import hre from "hardhat"
+import { expect } from "chai"
+import { setupAccounts } from "./utils/accounts"
+import { itUint } from "@coti-io/coti-ethers"
 
 describe("PrivateStorage", function () {
   async function deployPrivateStorage() {
     // Contracts are deployed using the first signer/account by default
-    const [owner, otherAccount] = await setupAccounts();
+    const [owner, otherAccount] = await setupAccounts()
 
     const PrivateStorage = await hre.ethers.getContractFactory("PrivateStorage");
-    const privateStorage = await PrivateStorage.deploy();
-
+    const privateStorage = await PrivateStorage
+      .connect(owner)  
+      .deploy()
+    
     await privateStorage.waitForDeployment()
 
-    return { privateStorage, owner, otherAccount };
+    return { privateStorage, owner, otherAccount }
   }
 
   describe("Deployment", function () {
@@ -26,7 +28,11 @@ describe("PrivateStorage", function () {
         privateStorage.setPrivateNumber.fragment.selector
       ) as itUint
 
-      await (await privateStorage.setPrivateNumber(itValue)).wait()
+      await (
+        await privateStorage
+          .connect(owner)
+          .setPrivateNumber(itValue)
+      ).wait()
 
       const ctValue = await privateStorage.privateNumber()
 

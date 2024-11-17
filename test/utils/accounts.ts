@@ -4,7 +4,7 @@ import { CotiNetwork, getDefaultProvider, Wallet } from "@coti-io/coti-ethers"
 let pks = process.env.SIGNING_KEYS ? process.env.SIGNING_KEYS.split(",") : []
 
 export async function setupAccounts() {
-  const provider = getDefaultProvider(CotiNetwork.Devnet);
+  const provider = getDefaultProvider(CotiNetwork.Testnet);
 
   if (pks.length == 0) {
     const key1 = Wallet.createRandom(provider)
@@ -21,7 +21,7 @@ export async function setupAccounts() {
     throw new Error(`Please use faucet to fund account ${wallets[0].address}`)
   }
 
-  let userKeys = process.env.USER_KEY ? process.env.USER_KEY.split(",") : []
+  let userKeys = process.env.USER_KEYS ? process.env.USER_KEYS.split(",") : []
 
   const toAccount = async (wallet: Wallet, userKey?: string) => {
     if (userKey) {
