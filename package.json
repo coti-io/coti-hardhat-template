@@ -1,11 +1,22 @@
 {
+  "name": "coti-hardhat-template",
+  "version": "1.0.0",
+  "license": "Apache 2.0",
+  "description": "A simple template to get started with smart contract development on COTI.",
+  "author": "COTI Development",
+  "repository": {
+    "type": "git",
+     "url": "git://github.com/coti-io/coti-hardhat-template.git"
+  },
+  "homepage": "https://docs.coti.io/coti-v2-documentation/build-on-coti/tools/hardhat",
+  "keywords": ["coti", "privacy", "ethereum", "blockchain", "web3", "garbled-circuits", "l2", "on-chain-compute"],
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^5.0.0",
     "hardhat": "^2.22.15"
   },
   "dependencies": {
-    "@coti-io/coti-contracts": "^1.0.0",
-    "@coti-io/coti-ethers": "^1.0.2",
+    "@coti-io/coti-contracts": "^1.0.1",
+    "@coti-io/coti-ethers": "^1.0.3",
     "dotenv": "^16.4.5"
   }
 }
