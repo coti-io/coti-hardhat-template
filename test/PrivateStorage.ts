@@ -3,6 +3,8 @@ import { expect } from "chai"
 import { setupAccounts } from "./utils/accounts"
 import { itUint } from "@coti-io/coti-ethers"
 
+const GAS_LIMIT = 12000000
+
 describe("PrivateStorage", function () {
   async function deployPrivateStorage() {
     // Contracts are deployed using the first signer/account by default
@@ -11,7 +13,7 @@ describe("PrivateStorage", function () {
     const PrivateStorage = await hre.ethers.getContractFactory("PrivateStorage");
     const privateStorage = await PrivateStorage
       .connect(owner)  
-      .deploy()
+      .deploy({ gasLimit: GAS_LIMIT })
     
     await privateStorage.waitForDeployment()
 
@@ -31,7 +33,7 @@ describe("PrivateStorage", function () {
       await (
         await privateStorage
           .connect(owner)
-          .setPrivateNumber(itValue)
+          .setPrivateNumber(itValue, { gasLimit: GAS_LIMIT })
       ).wait()
 
       const ctValue = await privateStorage.privateNumber()

@@ -11,9 +11,12 @@ const config: HardhatUserConfig = {
     testnet: {
       url: "https://testnet.coti.io/rpc",
       chainId: 7082400,
-      accounts: process.env.SIGNING_KEYS ? process.env.SIGNING_KEYS.split(",") : []
+      accounts: process.env.SIGNING_KEYS ? process.env.SIGNING_KEYS.split(",") : [],
     },
-  }
+  },
+  mocha: {
+    timeout: 100000000
+  },
 };
 
 export default config;
