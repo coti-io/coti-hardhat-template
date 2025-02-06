@@ -29,4 +29,4 @@ npx hardhat test
 
 ---
 
-To report an issue, please see the [issues](https://github.com/coti-io/coti-hardhat-template) tab.
+To report an issue, please see the [issues](https://github.com/coti-io/coti-hardhat-template/issues) tab.

@@ -1,6 +1,6 @@
 import hre from "hardhat"
 import { expect } from "chai"
-import { setupAccounts } from "./utils/accounts"
+import { setupAccounts } from "../scripts/utils/accounts"
 import { itUint } from "@coti-io/coti-ethers"
 
 const GAS_LIMIT = 12000000
