@@ -5,18 +5,25 @@ import dotenv from "dotenv"
 dotenv.config()
 
 const config: HardhatUserConfig = {
-  defaultNetwork: "testnet",
-  solidity: "0.8.19",
+  defaultNetwork: "coti-testnet",
+  solidity: {
+    version: "0.8.19",
+    settings: {
+      evmVersion: "paris"
+    }
+  },
   networks: {
-    testnet: {
+    "coti-testnet": {
       url: "https://testnet.coti.io/rpc",
       chainId: 7082400,
       accounts: process.env.SIGNING_KEYS ? process.env.SIGNING_KEYS.split(",") : [],
     },
-  },
-  mocha: {
-    timeout: 100000000
-  },
+    "coti-mainnet": {
+      url: "https://mainnet.coti.io/rpc",
+      chainId: 2632500,
+      accounts: process.env.SIGNING_KEYS ? process.env.SIGNING_KEYS.split(",") : [],
+    },
+  }
 };
 
 export default config;

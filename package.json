@@ -15,8 +15,8 @@
     "hardhat": "^2.22.15"
   },
   "dependencies": {
-    "@coti-io/coti-contracts": "^1.0.5",
-    "@coti-io/coti-ethers": "^1.0.3",
+    "@coti-io/coti-contracts": "^1.0.9",
+    "@coti-io/coti-ethers": "^1.0.5",
     "dotenv": "^16.4.5"
   }
 }
